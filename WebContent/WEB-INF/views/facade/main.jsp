@@ -4,10 +4,9 @@
 <jsp:include page = "../common/head.jsp"/>
 
 <div class = "container">
-<div></div> <div><h3>회원관리</h3></div> <div></div>
-<div></div> 
+<div><h1 id = "main_text">회원관리</h1></div>
+
 <div class = "content">
-${page}
 <c:choose>
 	<c:when test="${page eq 'login'}">
 		<jsp:include page = "login.jsp"/>
@@ -15,14 +14,12 @@ ${page}
 	<c:when test="${page eq 'join'}">
 		<jsp:include page = "join.jsp"/>
 	</c:when>
-	<c:when test="${page eq 'main'} && ${folder eq 'player'}">
+	<c:when test="${page eq 'main'} & ${folder eq 'player'}">
 		<jsp:include page = "../player/main.jsp"/>
 	</c:when>
 </c:choose>
-
 </div> 
 <div></div>
-<div></div> <div></div> <div></div>
 </div>
 
 <jsp:include page="../common/foot.jsp"/>

@@ -1,20 +1,11 @@
 var app = (()=>{
 	return {
 		init : (ctx)=>{
-			playerService.login();
-			$('#a_join').click(()=>{
-				alert('회원가입 이동!');
-				location.assign(ctx+'/facade.do?action=move&folder=facade&page=join');
-			});
-			$('#back_page').click(()=>{
-				alert('뒤로이동');
-				location.assign(ctx+'/facade.do?action=move&folder=facade&page=login');
-			});
-			$('#join').submit(()=>{
-				alert('회원가입 완료');
-				$('#join').attr('action','/jee-soccer/player.do');
-				$('#join').submit();
-			});
+			playerService.login(ctx);
+			playerService.join(ctx);
+			playerService.move_join(ctx);
+			playerService.back_page(ctx);
+			
 			
 			$('#btn2').click(()=>{
 				alert('클릭');
@@ -43,17 +34,41 @@ var user = (()=>{
 })();
 var playerService = (()=>{
 	return {
-		login :()=>{
+		login :(ctx)=>{
 			$('#login_btn').click(()=>{
 				if($('#userName').val()===''||$('#password').val()===''){
 					alert('필수값이 없습니다.')
 				}else{
 					alert('id: '+$('#userName').val()+'password: '+$('#password').val());
-					$('#login_form').attr('action','/jee-soccer/player.do');
+					$('#login_form').attr('action',ctx+'/player.do');
 					$('#login_form').submit();
 				}
 			});
+		},
+		join : (ctx)=>{
+			$('#join_btn').click(()=>{
+				if($('#join_playerId').val()===''||$('#join_solar').val()===''){
+					alert('필수값이 없습니다.')
+				}else{
+					alert('id: '+$('#join_playerId').val()+'join_solar: '+$('#join_solar').val());
+					$('#join_form').attr('action',ctx+'/player.do');
+					$('#join_form').submit();
+				}
+			});
+		},
+		move_join : (ctx)=>{
+			$('#a_join').click(()=>{
+				alert('회원가입 이동!');
+				location.assign(ctx +'/facade.do?action=move&folder=facade&page=join');
+			});	
+		},
+		back_page : (ctx)=>{
+			$('#back_page').click(()=>{
+				alert('뒤로이동');
+				location.assign(ctx +'/facade.do?action=move&page=login');
+			});
 		}
+		
 	};
 })();
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.soccer.web.command.Receiver;
 import com.soccer.web.command.Sender;
+import com.soccer.web.enums.Action;
 
 
 @WebServlet("/player.do")
@@ -24,6 +25,14 @@ public class PlayerController extends HttpServlet {
 				request.getParameter("action"),
 				request.getParameter("page")));
 		Receiver.init(request);
+		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
+		case CREATE: request.setAttribute("page", "login");	
+			
+			break;
+
+		default:
+			break;
+		}
 		Sender.forward(request, response);
 		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
 				request.getParameter("playerId"), 

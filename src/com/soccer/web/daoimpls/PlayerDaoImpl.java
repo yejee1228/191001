@@ -15,6 +15,28 @@ public class PlayerDaoImpl implements PlayerDao{
 	public static PlayerDaoImpl getInstance() {return instance;}
 	private PlayerDaoImpl() {}
 	
+	@Override
+	public boolean insertPlayer(PlayerBean param) {
+		boolean b = false;
+		PlayerBean p = new PlayerBean();
+		try {
+			String sql = "INSERT INTO PLAYER(PLAYER_ID, PLAYER_NAME, SOLAR, TEAM_ID)\n" + 
+					"VALUES(?,'김',?,'K02')";
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection().prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(3, param.getSolar());
+			int rs = stmt.executeUpdate();
+			b= (rs == 1) ? true : false;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(p.toString());
+		return b;
+	}
 	
 	@Override
 	public PlayerBean selectByPlayerIdSolar(PlayerBean param) {
@@ -103,6 +125,7 @@ public class PlayerDaoImpl implements PlayerDao{
 		
 		return list;
 	}
+	
 	
 
 }
