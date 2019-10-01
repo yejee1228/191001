@@ -19,7 +19,7 @@ public class Command implements Order{
 				request.getParameter("action"),
 				request.getParameter("folder"),
 				request.getParameter("page")));
-		this.view = String.format(Constants.DOUBLE_PATH,"facade",page);
+		this.view = String.format(Constants.DOUBLE_PATH,"facade","main");
 		System.out.println(this.view);
 	}
 

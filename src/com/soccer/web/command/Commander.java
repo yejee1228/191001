@@ -17,8 +17,8 @@ public class Commander {
 		case SEARCH : cmd = new SearchCommand(request); break;
 		case MOVE : cmd = new MoveCommand(request);	break;
 		case LOGIN : cmd = new LoginCommand(request); break;
+		case JOIN : cmd = new JoinCommand(request); break;
 		}
-		
 		return cmd;
 	}
 }

@@ -4,15 +4,26 @@ var app = (()=>{
 			playerService.login();
 			$('#a_join').click(()=>{
 				alert('회원가입 이동!');
-				location.assign(ctx+'/player.do?action=move&folder=fasade&page=join');
+				location.assign(ctx+'/facade.do?action=move&folder=facade&page=join');
 			});
 			$('#back_page').click(()=>{
 				alert('뒤로이동');
-				location.assign(ctx+'/player.do?action=move&folder=fasade&page=login');
+				location.assign(ctx+'/facade.do?action=move&folder=facade&page=login');
 			});
 			$('#join').submit(()=>{
 				alert('회원가입 완료');
+				$('#join').attr('action','/jee-soccer/player.do');
+				$('#join').submit();
 			});
+			
+			$('#btn2').click(()=>{
+				alert('클릭');
+				location.assign('${ctx}/player.do?action=find2&page=2_positions');
+			});
+			$('#btn4').submit(()=>{
+				alert('클릭');
+			});
+			
 		}
 	};
 })(); 

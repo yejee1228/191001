@@ -29,11 +29,14 @@ public class LoginCommand extends Command{
 		player.setSolar(solar);
 		player = PlayerServiceImpl.getInstance().login(player);
 		System.out.println("10.로그인커맨드");
-		System.out.println(request.getParameter("page"));
-		System.out.println(player.getPlayerId());
-		String a = (player!=null) ? request.getParameter("page"):"login";
-		setPage(a);
+		System.out.println(player);
 		
+		String a = (player.getPlayerId()==null) ? "login" : request.getParameter("page");
+		String b = (player.getPlayerId()==null) ? "facade" : request.getParameter("folder");
+		request.setAttribute("page", a);
+		request.setAttribute("folder",b);
+		
+		System.out.println(a+","+b);
 		super.execute();
 	}
 }

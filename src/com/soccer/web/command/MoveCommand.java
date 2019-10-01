@@ -16,12 +16,13 @@ public class MoveCommand extends Command{
 		setDomain(request.getServletPath()
 				.substring(1,request.getServletPath().indexOf(".")));
 		setAction(request.getParameter("action"));
+		setPage(request.getParameter("page"));
 		execute();
 	}
 
 	@Override
 	public void execute() {
-		setPage(request.getParameter("page"));
+
 		super.execute();
 	}
 

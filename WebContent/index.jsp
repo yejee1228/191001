@@ -4,5 +4,5 @@
    
 <script>
 
-location.assign('<%=request.getContextPath()%>/facade.do')
+location.assign('<%=request.getContextPath()%>/facade.do?')
 </script>

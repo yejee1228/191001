@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page = "../common/head.jsp"/>
-<div></div>
-<div id = "join_title"><h3>회원가입</h3></div>
-<div></div>
-<div></div>
+
 <div>
-	<form action="join">
+	<form>
+		<div id = "join_title"><h3>회원가입</h3></div>
 		<div class = "join_form">
 			<div>플레이어 id</div><div id="input"><input type="text" name="playerId" style = "width: 100%"/></div>
 			<div>이름</div><div id="input"><input type="text" name="playerName" style = "width: 100%"/></div>
@@ -21,6 +18,9 @@
 			<div>솔라</div><div id="input"><input type="text" name="solar" style = "width: 100%"/></div>
 			<div>키</div><div id="input"><input type="text" name="height" style = "width: 100%"/></div>
 			<div>몸무게</div><div id="input"><input type="text" name="weight" style = "width: 100%"/></div>
+			<input type="hidden" name="action" value="join" style="width: 100%;height: 100%"/>
+     		<input type="hidden" name="folder" value="facade" style="width: 100%;height: 100%"/>
+    		<input type="hidden" name="page" value="login" style="width: 100%;height: 100%"/>
 			<div id="back"><a id = "back_page" href="#">뒤로가기</a>
 			</div>
 			<div id="submit">
@@ -30,14 +30,7 @@
 		
 	</form>
 </div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
 
-
-<jsp:include page="../common/foot.jsp"/>
 <script>
 app.init('${ctx}');
-
 </script>
