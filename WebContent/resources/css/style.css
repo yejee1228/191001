@@ -1,0 +1,73 @@
+@charset "UTF-8";
+html, body {
+	margin: 0; 
+	height : 100%;
+	overflow: hidden; 
+}
+.wrapper{
+	display : grid;
+	width: 100%;
+	height: 100%;
+	grid-template-columns : 20% 60% 20%;
+	grid-template-rows : 20% 50% 30%
+}
+
+#soccer{
+	margin : 0 auto;
+	width: 173.5px;
+	height : 100%
+}
+.login_tab{
+	display : grid;
+	width: 80%;
+	height: 80%;
+	margin: 10% auto;
+	border : 1px solid black;
+	grid-template-columns : 70% 30%;
+	grid-template-rows : 50% 50%;
+
+}
+.one {
+	width : 99%;
+  grid-column: 1;
+  grid-row: 1
+}
+.two { 
+  grid-row: 1 / 3
+}
+.three {
+  width : 99%;
+  grid-column: 1;
+  grid-row: 2
+}
+
+#join_tag{width:75px; margin: 0 auto}
+
+.join_form{
+	display : grid;
+	width: 65%;
+	height: 80%;
+	margin: 10% auto;
+	border : 1px solid black;
+	grid-template-columns : 40% 10% 50%;
+	grid-template-rows : 23px 23px 23px 23px 23px 23px 23px 23px 23px 23px 23px 23px 23px 23px ;
+	background-color : #ffc1e0
+	
+}
+#join_title{
+	margin : auto
+}
+
+#input{
+	grid-column: 2/4;
+	border : 1px solid black;
+}
+#back{
+	grid-column: 1/3;
+}
+#back_page{
+	margin: 0 auto
+}
+#submit{
+	margin: 0 auto;
+}
