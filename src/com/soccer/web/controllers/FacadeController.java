@@ -18,7 +18,7 @@ public class FacadeController extends HttpServlet {
 		CTX, CSS, JS, IMG
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("퍼사드로 들어옴"+request.getParameter("page"));
 		HttpSession session = request.getSession();
 		for(Resources r : Resources.values()) {

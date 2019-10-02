@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <div></div>
-<div>
+<div id ="soccer_img">
 	<img id="soccer"  src = "${img}/soccer.png" alt = ""/>    
 </div>
 <div></div>

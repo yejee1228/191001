@@ -27,9 +27,8 @@ public class PlayerController extends HttpServlet {
 		Receiver.init(request);
 		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
 		case CREATE: request.setAttribute("page", "login");	
-			
 			break;
-
+		case SEARCH : request.setAttribute("page",request.getParameter("page"));
 		default:
 			break;
 		}
