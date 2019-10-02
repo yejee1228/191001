@@ -40,7 +40,7 @@ public class PlayerServiceImpl implements PlayerService{
 
 	@Override
 	public List<PlayerBean> findByTeamIdHeightName(PlayerBean param) {
-		return null;
+		return PlayerDaoImpl.getInstance().selectByTeamIdHeightName(param);
 	}
 
 	

@@ -5,6 +5,7 @@ var app = (()=>{
 			playerService.join(ctx);
 			playerService.move_join(ctx);
 			playerService.back_page(ctx);
+			playerService.go_to_player_page(ctx);
 			playerService.btn2(ctx);
 			playerService.btn4(ctx);
 			playerService.btn5(ctx);
@@ -61,6 +62,12 @@ var playerService = (()=>{
 			$('#back_page').click(()=>{
 				alert('뒤로이동');
 				location.assign(ctx +'/facade.do?action=move&page=login');
+			});
+		},
+		go_to_player_page : (ctx)=>{
+			$('#go_to_player_page').click(()=>{
+				alert('뒤로이동');
+				location.assign(ctx +'/player.do?action=search&folder=player&page=main');
 			});
 		},
 		btn2 : (ctx)=>{

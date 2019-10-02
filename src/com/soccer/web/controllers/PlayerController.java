@@ -34,7 +34,7 @@ public class PlayerController extends HttpServlet {
 		}
 		Sender.forward(request, response);
 		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
-				request.getParameter("playerId"), 
+				request.getParameter("TeamId"), 
 				request.getParameter("solar"),
 				request.getParameter("action"),
 				request.getParameter("page")));

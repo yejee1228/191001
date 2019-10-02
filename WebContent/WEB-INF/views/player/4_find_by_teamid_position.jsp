@@ -2,5 +2,12 @@
     pageEncoding="UTF-8"%>
     
     
-해당 ID가 ${player.teamId} 팀의 포지션 ${player.position}이 
-일치하는 선수는 홍길동입니다.
+해당 ID가 ${teamId} 팀의 포지션 ${position}이 
+일치하는 선수는<br/>${playerName}입니다.
+<br/>
+<br/>
+<br/>
+
+<a id = "go_to_player_page" href="#">뒤로가기</a>
+
+

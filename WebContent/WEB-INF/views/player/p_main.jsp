@@ -5,14 +5,13 @@
 
 <div class = "container">
 <div><h1 id = "main_text">플레이어</h1></div>
-
 <div class = "content">
-
 <c:choose>
 	<c:when test="${page eq 'main'}">
 		<jsp:include page = "2_positions_q.jsp"/>
 		<jsp:include page = "4_find_by_teamid_position_q.jsp"/>
 		<jsp:include page = "5_find_by_teamid_height_name_q.jsp"/>
+		<a id = "back_page" href="#">뒤로가기</a>
 	</c:when>
 	<c:when test="${page eq '2_positions'}">
 		<jsp:include page = "2_positions.jsp"/>
@@ -25,9 +24,7 @@
 	</c:when>
 </c:choose>
 </div> 
-<div>
-<a id = "back_page" href="#">뒤로가기</a>
-</div>
+<div></div>
 </div>
 
 <script>

@@ -102,23 +102,57 @@ public class PlayerDaoImpl implements PlayerDao{
 
 	@Override
 	public List<PlayerBean> selectByTeamIdPosition(PlayerBean param) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<PlayerBean> selectByMany(PlayerBean param) {
 		List<PlayerBean> list = new ArrayList<>();
-		
+		System.out.println("★★★ 8. PlayerDaoImpl 들어옴 ★★★ ");
+		System.out.println(String.format("request 값 출력 : %s, %s ",
+				param.getTeamId(), 
+				param.getPosition()));
 		try {
-			String sql = "";
-			PreparedStatement stmt = DatabaseFactory.createDatabase(Constants.VENDOR).getConnection().prepareStatement(sql);
-			
+			String sql ="SELECT TEAM_ID teamId, PLAYER_NAME playerName FROM PLAYER\n" + 
+					"WHERE TEAM_ID LIKE ? AND POSITION LIKE ?";
+			PreparedStatement stmt = DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection()
+					.prepareStatement(sql);
+			stmt.setString(1, param.getTeamId());
+			stmt.setString(2, param.getPosition());
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				
+				PlayerBean p = new PlayerBean();
+				p.setTeamId(rs.getString("teamId"));
+				p.setPlayerName(rs.getString("playerName"));
+				list.add(p);
+				System.out.println(p);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List<PlayerBean> selectByTeamIdHeightName(PlayerBean param) {
+		List<PlayerBean> list = new ArrayList<>();
+	
+		try {
+			String sql = "SELECT TEAM_ID teamId, PLAYER_NAME playerName, HEIGHT height FROM PLAYER" + 
+					"WHERE TEAM_ID LIKE ? AND HEIGHT >= ? AND PLAYER_NAME LIKE'"+ param.getPlayerName()+"'%";
+			
+			PreparedStatement stmt =  DatabaseFactory
+					.createDatabase(Constants.VENDOR)
+					.getConnection()
+					.prepareStatement(sql);
+			stmt.setString(1, param.getTeamId());
+			stmt.setString(2, param.getHeight());
+			//stmt.setString(3, param.getPlayerName()+"%");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				PlayerBean p = new PlayerBean();
+				p.setTeamId(rs.getString("teamId"));
+				p.setHeight(rs.getString("height"));
+				p.setPlayerName(rs.getString("playerName"));
+				list.add(p);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

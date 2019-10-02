@@ -12,6 +12,6 @@ public interface PlayerDao {
 	public List<String> selectPositions();
 	// 4.
 	public List<PlayerBean> selectByTeamIdPosition(PlayerBean param);
-	//test
-	public List<PlayerBean> selectByMany(PlayerBean param);
+	// 5. 팀아이디,키,포지션 입력하면 해당 선수 정보 출력
+	public List<PlayerBean> selectByTeamIdHeightName(PlayerBean param);
 }

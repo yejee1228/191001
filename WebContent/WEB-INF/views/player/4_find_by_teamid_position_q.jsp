@@ -4,7 +4,7 @@
 <form class = "btn2_spac" id="btn4" action="${ctx}/player.do">
 	<div>팀아이디 : </div><div><input type="text" name="teamId" /></div>
 	<div>포지션 : </div><div><input type="text" name="position" /></div>
-	<input type="hidden" name="action" value="find" />
+	<input type="hidden" name="action" value="search" />
 	<input type="hidden" name="folder" value="player" />
 	<input type="hidden" name="page" value="4_find_by_teamid_position" />
 	<div></div><div><input id = "btn_4" type="button" value="전송"/></div>
